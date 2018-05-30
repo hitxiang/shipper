@@ -6,6 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/micro/go-micro/cmd"
+
 	pb "github.com/hitxiang/shipper/consignment-service/proto/consignment"
 	microclient "github.com/micro/go-micro/client"
 	"golang.org/x/net/context"
@@ -27,6 +29,7 @@ func parseFile(file string) (*pb.Consignment, error) {
 }
 
 func main() {
+	cmd.Init()
 
 	client := pb.NewShippingService("go.micro.srv.consignment", microclient.DefaultClient)
 
